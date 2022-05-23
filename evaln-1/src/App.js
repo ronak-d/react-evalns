@@ -43,6 +43,7 @@ export default function App() {
   return (
     <div className="App">
       <div>
+        
         <div id="loading-container">...Loading</div>
         <Button id="SORT_BUTTON" title={`Sort by Ascending Salary`} />
 
