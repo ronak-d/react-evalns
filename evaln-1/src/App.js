@@ -11,11 +11,7 @@ export default function App() {
   const [page, setPage] = useState(1);
   // https://json-server-mocker-masai.herokuapp.com/candidates
   // http://localhost:3000/candidates
-  useEffect((page) =>{
-    // pagemovt(page)
-  },[page])
 
-// var pagemovt ;
 
   useEffect(() => {
     // lists fetched[1]
@@ -42,18 +38,19 @@ export default function App() {
   // is data coming = y/n = yes
   console.log(data);
 
-  function AdjustPage(page){
-      setPage(page+1);
-  }
+
 
   return (
     <div className="App">
       <div>
         <div id="loading-container">...Loading</div>
         <Button id="SORT_BUTTON" title={`Sort by Ascending Salary`} />
-        <Button disabled={page===1} onClick={()=>AdjustPage} title="PREV" id="PREV" />
+
+        {/* pagination */}
+        <Button disabled={page===1} onClick={()=>setPage(page-1)} title="PREV" id="PREV" />
         <Button onClick={()=>setPage(page+1)} id="NEXT" title="NEXT" />
       </div>
+
       {/* data mapped */}
     {data.map((item) => <CandidateCard key = {item.id} {...item}/>)}
     </div>
